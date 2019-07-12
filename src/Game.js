@@ -15,3 +15,17 @@ Game.prototype.put = function(player, field) {
     this.current_player = "first"
   }
 }
+
+Game.prototype.finished = function() {
+  return this.winColumn(this.fields.first) ||
+    this.winColumn(this.fields.second)
+}
+
+Game.prototype.winColumn = function(fields) {
+  for (var column = 1; column <= 3; ++column)
+    if (this.countFieldsWithColumn(fields, column) == 3)
+      return true
+
+  return false
+}
+
