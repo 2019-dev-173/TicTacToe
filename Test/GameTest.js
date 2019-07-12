@@ -4,3 +4,7 @@ describe("Tic Tac Toe Game", function() {
   beforeEach(function() {
     game = new Game();
   })
+
+  it("allows only first player to start", function() {
+    expect(game.currentPlayer()).toEqual("first");
+  })
