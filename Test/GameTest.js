@@ -20,8 +20,31 @@ describe("Tic Tac Toe Game", function() {
 
     expect(game.currentPlayer()).toEqual("first");
   })
-
-describe("winColumn(fields)", function() {
+  
+  describe("winColumn(fields)", function() {
     it("is not a win when fields is empty", function() {
       expect(game.winColumn([])).toEqual(false);
-    })  
+    })
+
+    it("is a win when fields has a full column", function() {
+      for (var y = 1; y <= 3; ++y) {
+        var fields = [[1, y], [2, y], [3, y]]
+        expect(game.winColumn(fields)).toEqual(true)
+      }
+    })
+    
+    it("is not a win when fields has only one field", function() {
+      var fields = [[1, 2]]
+      expect(game.winColumn(fields)).toEqual(false)
+    })
+
+    it("is not a win when fields has no full column", function() {
+      var fields = [[1, 2], [2, 2], [3, 3]]
+      expect(game.winColumn(fields)).toEqual(false)
+    })
+
+    it("is not a win when fields has no full column", function() {
+      var fields = [[1, 2], [2, 2], [3, 3]]
+      expect(game.winColumn(fields)).toEqual(false)
+    })
+  })
