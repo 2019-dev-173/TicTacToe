@@ -8,3 +8,8 @@ describe("Tic Tac Toe Game", function() {
   it("allows only first player to start", function() {
     expect(game.currentPlayer()).toEqual("first");
   })
+
+  it("switches player after first turn", function() {
+    game.put("first", [1, 1]);
+    expect(game.currentPlayer()).toEqual("second");
+  })
