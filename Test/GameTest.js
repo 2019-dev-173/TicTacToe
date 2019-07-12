@@ -48,3 +48,50 @@ describe("Tic Tac Toe Game", function() {
       expect(game.winColumn(fields)).toEqual(false)
     })
   })
+
+  describe("finished()", function() {
+    it("checks for finish", function() {
+      expect(game.finished()).toEqual(false);
+    })
+
+    it("is finished when first player won", function() {
+      game.put("first", [1, 1]);
+      game.put("second", [1, 2]);
+      game.put("first", [2, 1]);
+      game.put("second", [2, 2]);
+      game.put("first", [3, 1]);
+
+      expect(game.finished()).toEqual(true);
+    })
+
+    it("is finished when second player won", function() {
+      game.put("first", [1, 1]);
+      game.put("second", [1, 2]);
+      game.put("first", [2, 1]);
+      game.put("second", [2, 2]);
+      game.put("first", [3, 3]);
+      game.put("second", [3, 2]);
+
+      expect(game.finished()).toEqual(true);
+    })
+
+    it("checks for finish after one turn", function() {
+      game.put("first", [1, 1]);
+      expect(game.finished()).toEqual(false);
+    })
+
+    it("checks for finish after eight turn", function() {
+      game.put("first", [1, 1]);
+      game.put("second", [1, 2]);
+      game.put("first", [2, 1]);
+      game.put("second", [2, 2]);
+      game.put("first", [2, 3]);
+      game.put("second", [3, 1]);
+      game.put("first", [1, 3]);
+      game.put("second", [2, 3]);
+
+      expect(game.finished()).toEqual(false);
+    })
+  })
+
+})  
