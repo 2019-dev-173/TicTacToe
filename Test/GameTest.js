@@ -13,3 +13,10 @@ describe("Tic Tac Toe Game", function() {
     game.put("first", [1, 1]);
     expect(game.currentPlayer()).toEqual("second");
   })
+
+  it("switches player after each turn", function() {
+    game.put("first", [1, 1]);
+    game.put("second", [1, 2]);
+
+    expect(game.currentPlayer()).toEqual("first");
+  })
