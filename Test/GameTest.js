@@ -20,3 +20,8 @@ describe("Tic Tac Toe Game", function() {
 
     expect(game.currentPlayer()).toEqual("first");
   })
+
+describe("winColumn(fields)", function() {
+    it("is not a win when fields is empty", function() {
+      expect(game.winColumn([])).toEqual(false);
+    })  
