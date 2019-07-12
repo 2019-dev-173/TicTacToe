@@ -29,3 +29,12 @@ Game.prototype.winColumn = function(fields) {
   return false
 }
 
+Game.prototype.countFieldsWithColumn = function(fields,column){
+  var count = 0
+
+  for (var i = 0; i < fields.length; ++i)
+    if(fields[i][1] == column)
+      count += 1
+
+  return count
+}
